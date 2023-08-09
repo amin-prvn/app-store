@@ -5,6 +5,10 @@ from .models import App, Purchase
 
 class AppSerializer(serializers.ModelSerializer):
     # TODO It is better to prevent using ModelSerializer in production
+    owner = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='username'
+     )
     class Meta:
         model = App
         fields = ['id', 'title', 'icon', 'description', 'owner', 'price']
@@ -12,6 +16,10 @@ class AppSerializer(serializers.ModelSerializer):
         
 
 class AppOwnerSerializer(serializers.ModelSerializer):
+    owner = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='username'
+     )
     class Meta:
         model = App
         fields = ['id', 'title', 'icon', 'description', 'is_verified', 'price', 'link', 'key', 'owner', 'created_at']
@@ -19,6 +27,11 @@ class AppOwnerSerializer(serializers.ModelSerializer):
 
 
 class PurchaseSerializer(serializers.ModelSerializer):
+    owner = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='username'
+    )
+    app = AppSerializer(read_only=True)
     class Meta:
         model = Purchase
         fields = ['id', 'owner', 'app', 'link', 'key', 'price', 'purchase_date']
