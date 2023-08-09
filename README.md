@@ -74,6 +74,12 @@ Now you can access to the admin panel with this link:
 You can visit the documentation in Postman Collection:
 
 - https://app.getpostman.com/join-team?invite_code=6969936138bf04f69a178b0435a12a38&target_code=73c73034a213eac86a1b802b60be1ba5
+
+## Dashboard Service
+
+You can visit [`Dashboard Service PDF`](./DashboardService.pdf), about how implement a dashboard service for getting analitycs about users and apps.
+
+
 ## About The Author
 
 Mohammad Amin Parvanian - Email: amin_prvn@outlook.com
