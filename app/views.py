@@ -69,9 +69,12 @@ class PurchaseCreateAPIView(generics.CreateAPIView):
     @transaction.atomic
     def create(self, request, app_id, *args, **kwargs):
         try:
-            app = App.objects.get(~Q(owner=request.user), pk=app_id, is_verified=True)
+            app = App.objects.get(pk=app_id, is_verified=True)
         except App.DoesNotExist:
             raise Http404
+        
+        if app.owner == request.user:
+            return Response({'detail': "You can't buy your own app"}, status=status.HTTP_400_BAD_REQUEST) 
         
         try:
             Purchase.objects.get(owner=request.user, app=app)
