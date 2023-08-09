@@ -2,13 +2,13 @@
 
 ## Run The Project In Local Environment
 
-0. Create a .env file from [`.env.sample`](./.env.sample) and update environment variables.
+0. Go to the project folder and Copy .env file from [`.env.sample`](./.env.sample) and update environment variables.
 
 ```sh
 $ cp .env.sample .env
 ```
 
-1. Go to the project folder and Create virtualenv.
+1. Create virtualenv.
 ```
 python3 -m virtualenv venv
 ```
